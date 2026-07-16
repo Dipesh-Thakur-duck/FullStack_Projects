@@ -1,59 +1,86 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# YouTube Clone (Full Stack)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A full-stack YouTube-style video platform built to practice end-to-end web development — from a static frontend to a database-backed admin system for managing video content.
 
-## About Laravel
+## Overview
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This project replicates the core browsing experience of YouTube: a video feed displaying thumbnails, titles, and links, all served from a custom backend admin panel where videos can be added, edited, and managed.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Responsive video feed layout displaying thumbnail, title, and video link
+- Admin dashboard (built with Filament) to add, edit, and delete video entries
+- Video details managed through the admin panel: thumbnail image, title, video link, and other metadata
+- Clean separation between the public-facing frontend and the admin backend
 
-## Learning Laravel
+## Tech Stack
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+**Frontend**
+- HTML5
+- CSS3
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Backend**
+- Laravel (PHP framework)
+- Filament (admin panel / resource management)
+- Eloquent ORM (database interaction)
+- MySQL (database)
 
-## Laravel Sponsors
+## How It Works
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. An admin logs into the Filament dashboard and adds a new video entry — uploading a thumbnail image and entering the video title, link, and other details.
+2. Laravel stores this data in the database via Eloquent ORM.
+3. The public frontend fetches and displays all video entries in a YouTube-style grid, pulling thumbnail, title, and link data dynamically from the backend.
+4. Visitors can browse the video feed and click through to watch videos via the linked URLs.
 
-### Premium Partners
+## Screenshots
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+*(Add screenshots of the video feed and the Filament admin panel here)*
 
-## Contributing
+## Getting Started
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Prerequisites
+- PHP >= 8.1
+- Composer
+- MySQL
+- Node.js & npm (if compiling frontend assets)
 
-## Code of Conduct
+### Installation
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+# Clone the repository
+git clone https://github.com/Dipesh-Thakur-duck/FullStack_Projects.git
+cd FullStack_Projects/youtube_clone_fullstack
 
-## Security Vulnerabilities
+# Install PHP dependencies
+composer install
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Copy environment file and configure database
+cp .env.example .env
+php artisan key:generate
 
-## License
+# Run migrations
+php artisan migrate
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Serve the application
+php artisan serve
+```
+
+Then visit `http://localhost:8000` to view the app, and `http://localhost:8000/admin` to access the Filament admin panel.
+
+## What I Learned
+
+- Structuring a Laravel backend to serve dynamic content to a static-style frontend
+- Using Filament to rapidly build an admin CRUD interface without writing custom forms/controllers from scratch
+- Managing relationships and data through Eloquent ORM
+- Handling image/thumbnail uploads and storage in a Laravel app
+
+## Future Improvements
+
+- Add user authentication and comments
+- Add video categories/search functionality
+- Improve responsive design for mobile devices
+
+## Author
+
+**Dipesh Thakur**
+[GitHub](https://github.com/Dipesh-Thakur-duck) · BIT Student, Texas College of Management and IT
